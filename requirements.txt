@@ -1,0 +1,28 @@
+# SmartFileSort Requirements
+# 
+# This project uses only Python standard library modules,
+# so no additional pip packages are required!
+#
+# Standard library modules used:
+# - os (file system operations)
+# - shutil (file moving/copying)
+# - re (regular expressions)
+# - logging (logging functionality)
+# - csv (CSV file handling)
+# - json (JSON configuration files)
+# - datetime (timestamps)
+# - pathlib (modern path handling)
+# - typing (type hints)
+# - hashlib (file hashing for duplicates)
+# - tkinter (GUI - included with Python)
+# - tempfile (temporary files for testing)
+# - unittest (testing framework)
+# - threading (GUI threading)
+# - argparse (command line parsing)
+#
+# Minimum Python version: 3.7+
+#
+# Optional for future enhancements:
+# pandas>=1.3.0
+# requests>=2.25.0
+# schedule>=1.1.0

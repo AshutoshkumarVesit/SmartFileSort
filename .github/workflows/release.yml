@@ -1,0 +1,98 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v1.0.0
+
+jobs:
+  create-release:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    - name: Get version from tag
+      id: get_version
+      run: |
+        $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
+      shell: pwsh
+    
+    - name: Create distribution
+      run: |
+        mkdir distribution
+        # Copy all necessary files
+        xcopy /E /I src distribution\src
+        xcopy /E /I gui distribution\gui
+        xcopy /E /I config distribution\config
+        xcopy /E /I scripts distribution\scripts
+        xcopy /E /I tests distribution\tests
+        copy README.md distribution\
+        copy LICENSE distribution\
+        copy requirements.txt distribution\
+        copy QUICK_START.bat distribution\
+        copy CHANGELOG.md distribution\
+        copy CONTRIBUTING.md distribution\
+    
+    - name: Create ZIP archive
+      run: |
+        Compress-Archive -Path distribution\* -DestinationPath SmartFileSort-v${{ steps.get_version.outputs.VERSION }}.zip
+      shell: pwsh
+    
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: SmartFileSort v${{ steps.get_version.outputs.VERSION }}
+        body: |
+          ## What's New in v${{ steps.get_version.outputs.VERSION }}
+          
+          ### 🚀 Features
+          - [Add your features here]
+          
+          ### 🐛 Bug Fixes
+          - [Add your bug fixes here]
+          
+          ### 📚 Documentation
+          - [Add documentation updates here]
+          
+          ### ⚠️ Breaking Changes
+          - [Add any breaking changes here]
+          
+          ## Installation
+          
+          1. Download the `SmartFileSort-v${{ steps.get_version.outputs.VERSION }}.zip` file
+          2. Extract to your desired location
+          3. Run `QUICK_START.bat` for a demo
+          4. Or run `python gui/gui_app.py` for the GUI
+          
+          ## Requirements
+          
+          - Python 3.7 or higher
+          - Windows 10/11 (for automation features)
+          
+          ## Full Changelog
+          
+          See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for complete details.
+        draft: false
+        prerelease: false
+    
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./SmartFileSort-v${{ steps.get_version.outputs.VERSION }}.zip
+        asset_name: SmartFileSort-v${{ steps.get_version.outputs.VERSION }}.zip
+        asset_content_type: application/zip

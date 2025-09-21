@@ -1,0 +1,95 @@
+{
+    "Documents": {
+        "extensions": [".pdf", ".doc", ".docx", ".txt", ".rtf", ".odt", ".xls", ".xlsx", ".ppt", ".pptx", ".csv"],
+        "patterns": [
+            "invoice.*\\.(pdf|doc|docx)",
+            "resume.*\\.(pdf|doc|docx)",
+            "report.*\\.(pdf|doc|docx|txt)",
+            "contract.*\\.(pdf|doc|docx)",
+            "receipt.*\\.(pdf|jpg|png)",
+            "statement.*\\.(pdf|csv|xlsx)"
+        ],
+        "description": "Office documents, PDFs, spreadsheets, and presentations"
+    },
+    "Images": {
+        "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".webp", ".ico", ".raw"],
+        "patterns": [
+            "screenshot.*\\.(jpg|jpeg|png)",
+            "photo.*\\.(jpg|jpeg|png)",
+            "image.*\\.(jpg|jpeg|png|gif)",
+            "wallpaper.*\\.(jpg|jpeg|png)",
+            "logo.*\\.(png|svg|jpg)"
+        ],
+        "description": "Images, photos, screenshots, and graphics"
+    },
+    "Videos": {
+        "extensions": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".m4v", ".3gp"],
+        "patterns": [
+            "lecture.*\\.(mp4|avi|mkv)",
+            "tutorial.*\\.(mp4|avi|mkv)",
+            "meeting.*\\.(mp4|avi|mkv)",
+            "recording.*\\.(mp4|avi|mkv)",
+            "movie.*\\.(mp4|avi|mkv)"
+        ],
+        "description": "Video files and recordings"
+    },
+    "Audio": {
+        "extensions": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".opus"],
+        "patterns": [
+            "music.*\\.(mp3|wav|flac)",
+            "audio.*\\.(mp3|wav|flac)",
+            "podcast.*\\.(mp3|wav)",
+            "song.*\\.(mp3|wav|flac)",
+            "voice.*\\.(mp3|wav|m4a)"
+        ],
+        "description": "Audio files, music, and podcasts"
+    },
+    "Code": {
+        "extensions": [".py", ".js", ".html", ".css", ".java", ".cpp", ".c", ".cs", ".php", ".rb", ".go", ".rs", ".ts", ".jsx", ".tsx", ".vue", ".sql", ".sh", ".bat", ".ps1"],
+        "patterns": [
+            "project.*\\.(py|js|java|cpp)",
+            "script.*\\.(py|js|sh|bat)",
+            ".*_code\\.(py|js|java|cpp)",
+            "main\\.(py|js|java|cpp|c)",
+            "index\\.(html|js|tsx|jsx)"
+        ],
+        "description": "Source code files and scripts"
+    },
+    "Archives": {
+        "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".tar.gz", ".tar.bz2"],
+        "patterns": [
+            "backup.*\\.(zip|rar|tar|gz)",
+            "archive.*\\.(zip|rar|tar|gz)",
+            "export.*\\.(zip|rar)",
+            "package.*\\.(zip|tar|gz)"
+        ],
+        "description": "Compressed archives and backups"
+    },
+    "Executables": {
+        "extensions": [".exe", ".msi", ".dmg", ".deb", ".rpm", ".pkg", ".app", ".appimage"],
+        "patterns": [
+            "setup.*\\.(exe|msi)",
+            "installer.*\\.(exe|msi|dmg)",
+            "install.*\\.(exe|msi|dmg)",
+            ".*_setup\\.(exe|msi)"
+        ],
+        "description": "Executable files and installers"
+    },
+    "Books": {
+        "extensions": [".epub", ".mobi", ".azw", ".azw3"],
+        "patterns": [
+            "book.*\\.(pdf|epub|mobi)",
+            "ebook.*\\.(pdf|epub|mobi)",
+            "manual.*\\.(pdf|epub)"
+        ],
+        "description": "E-books and digital publications"
+    },
+    "Fonts": {
+        "extensions": [".ttf", ".otf", ".woff", ".woff2", ".eot"],
+        "patterns": [
+            "font.*\\.(ttf|otf|woff)",
+            ".*_font\\.(ttf|otf)"
+        ],
+        "description": "Font files"
+    }
+}

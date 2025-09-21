@@ -1,0 +1,39 @@
+{
+    "general": {
+        "source_directory": "C:\\Users\\%USERNAME%\\Downloads",
+        "target_directory": "C:\\Users\\%USERNAME%\\Documents\\OrganizedFiles",
+        "log_level": "INFO",
+        "dry_run": false,
+        "create_date_folders": false,
+        "ignore_hidden_files": true,
+        "minimum_file_size_bytes": 0
+    },
+    "behavior": {
+        "handle_duplicates": "rename",
+        "duplicate_check_method": "name_and_size",
+        "max_duplicate_counter": 100,
+        "skip_recent_files_hours": 0,
+        "preserve_folder_structure": false
+    },
+    "filters": {
+        "excluded_extensions": [".tmp", ".temp", ".log", ".cache"],
+        "excluded_patterns": ["~*", ".*", "Thumbs.db", "desktop.ini"],
+        "included_extensions": [],
+        "min_file_age_minutes": 5
+    },
+    "notifications": {
+        "enable_email": false,
+        "email_smtp_server": "smtp.gmail.com",
+        "email_smtp_port": 587,
+        "email_from": "",
+        "email_to": "",
+        "email_password": "",
+        "enable_desktop_notifications": true
+    },
+    "scheduling": {
+        "auto_run_interval_minutes": 60,
+        "run_on_startup": false,
+        "quiet_hours_start": "22:00",
+        "quiet_hours_end": "08:00"
+    }
+}
